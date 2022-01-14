@@ -1,0 +1,22 @@
+cd eureka
+    mvn package
+sudo docker build -t eureka_img .
+sudo docker run -d -p 8761:8761 --name container_name --network networkname img_name
+
+sudo docker network inspect networkname
+
+sudo apt install mysql-server
+
+sudo docker run --name mysql-standalone --network networkname -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=res
+taurantdb -d mysql 
+
+To start server 
+
+sudo docker start container id first 3 letters
+
+sudo docker ps -a  ( to know how many servers are up)
+
+
+Network name Restapp
+eureka image name --> eureka_img
+eureka container name --> eureka_container

@@ -1,0 +1,86 @@
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
+		rcmjb27334dns.eastus2.cloudapp.azure.com
+
+ sudo apt-get update
+
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo apt-key fingerprint 0EBFCD88
+
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+apt-cache madison docker-ce
+
+sudo apt-get install docker-ce=5:18.09.1~3-0~ubuntu-xenial docker-ce-cli=5:18.09.1~3-0~ubuntu-xenial containerd.io
+
+			5:18.09.1~3-0~ubuntu-xenial
+
+sudo docker run hello-world
+
+sudo docker pull mysql
+
+sudo docker network create nbridge
+
+sudo  docker run --name db -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root --network networkbridge mysql:latest
+
+check for bootstrap prop->server port
+
+mvn clean install in config server
+
+sudo docker build -t configserver .
+
+sudo docker run -d -p 51000:51000 --network javamicroservices --name config-con c0d
+
+
+sudo docker ps ->to check the status
+
+sudo docker logs container id(first 3 letters)->to check whether it is running
+
+sudo 
+docker run --name=container_name  --restart on-failure -d image_name:tag
+
+docker logs mysql1 2>&1 | grep GENERATED
+GENERATED ROOT PASSWORD
+
+sudo docker start mysql id
+
+docker exec -it <mysql-container-id> bash
+     mysql -u root -p<password>
+    
+     For exiting, use "exit" command 2 times
+    
+     Eg: docker exec -it 31 bash
+         mysql -u root -proot
+
+FROM openjdk:8
+
+COPY ./target/restaurantsearchservice-*.jar restaurantsearchservice.jar
+
+EXPOSE 8080
+
+CMD ["java","-jar","-Dspring.profile.active=dev","restaurantsearchservice.jar"]
+
+
+eureka.client.serviceUrl.defaultZone = http://localhost:8761/eureka
+eureka.client.fetch-registry=true
+eureka.client.register-with-eureka=true
+
+spring.profiles.active=local
+spring.cloud.config.uri=http://localhost:51000
+management.endpoints.web.exposure.include=*
+
+spring.datasource.url=jdbc:mysql://localhost:3306/restaurantdb?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
