@@ -1,0 +1,10 @@
+var firebaseConfig = {
+    apiKey: "AIzaSyCEBETXiiX51IakIk7wDKbr1lJdrcnSoPI",
+    authDomain: "celestial-torus-286809.firebaseapp.com",
+    databaseURL: "https://celestial-torus-286809.firebaseio.com",
+    projectId: "celestial-torus-286809",
+    storageBucket: "celestial-torus-286809.appspot.com",
+    messagingSenderId: "405993578698",
+    appId: "1:405993578698:web:5e34359b29863e96275433",
+    measurementId: "G-7HFVP4JHLG"
+  };
